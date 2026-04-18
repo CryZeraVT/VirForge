@@ -162,8 +162,8 @@
     /* Fire canvas — centered, rises from the flame base of the logo */
     #fire-canvas {
       position: absolute;
-      /* canvas is 180×260 — center it horizontally, bottom at logo center */
-      top: calc(50% - 260px + 30px);
+      /* shifted up so fire emits from the anvil-top / flame base in the logo */
+      top: calc(50% - 260px - 20px);
       left: calc(50% - 90px);
       width: 180px;
       height: 260px;
@@ -714,7 +714,7 @@
   /* Emission zone: near the bottom of the canvas
      (which maps to the flame area of the voxel logo) */
   const emitCX = W / 2;
-  const emitY  = H - 8;
+  const emitY  = H - 55;
 
   const pool = [];
 
