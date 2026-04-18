@@ -163,7 +163,7 @@
     #fire-canvas {
       position: absolute;
       /* shifted up so fire emits from the anvil-top / flame base in the logo */
-      top: calc(50% - 260px + 20px);
+      top: calc(50% - 260px + 14px);
       left: calc(50% - 90px);
       width: 180px;
       height: 260px;
@@ -714,18 +714,18 @@
   /* Emission zone: near the bottom of the canvas
      (which maps to the flame area of the voxel logo) */
   const emitCX = W / 2;
-  const emitY  = H - 18;
+  const emitY  = H - 26;
 
   const pool = [];
 
   function Particle() { this.init(); }
 
   Particle.prototype.init = function() {
-    this.x       = emitCX + (Math.random() - 0.5) * 42;
+    this.x       = emitCX + (Math.random() - 0.5) * 62;
     this.y       = emitY  + (Math.random() - 0.5) * 4;
     /* Smaller pixels for subtlety */
     this.sz      = Math.floor(Math.random() * 2) + 1;
-    this.vx      = (Math.random() - 0.5) * 0.28;
+    this.vx      = (Math.random() - 0.5) * 0.42;
     this.vy      = -(Math.random() * 0.18 + 0.05);
     this.wobble  = Math.random() * Math.PI * 2;
     this.wSpeed  = (Math.random() - 0.5) * 0.025;
