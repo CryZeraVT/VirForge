@@ -163,7 +163,7 @@
     #fire-canvas {
       position: absolute;
       /* shifted up so fire emits from the anvil-top / flame base in the logo */
-      top: calc(50% - 260px - 10px);
+      top: calc(50% - 260px + 20px);
       left: calc(50% - 90px);
       width: 180px;
       height: 260px;
@@ -714,7 +714,7 @@
   /* Emission zone: near the bottom of the canvas
      (which maps to the flame area of the voxel logo) */
   const emitCX = W / 2;
-  const emitY  = H - 45;
+  const emitY  = H - 18;
 
   const pool = [];
 
@@ -725,12 +725,12 @@
     this.y       = emitY  + (Math.random() - 0.5) * 4;
     /* Smaller pixels for subtlety */
     this.sz      = Math.floor(Math.random() * 2) + 1;
-    this.vx      = (Math.random() - 0.5) * 0.35;
-    this.vy      = -(Math.random() * 0.7 + 0.25);
+    this.vx      = (Math.random() - 0.5) * 0.18;
+    this.vy      = -(Math.random() * 0.28 + 0.08);
     this.wobble  = Math.random() * Math.PI * 2;
-    this.wSpeed  = (Math.random() - 0.5) * 0.06;
+    this.wSpeed  = (Math.random() - 0.5) * 0.03;
     this.life    = 0;
-    this.maxLife = Math.floor(Math.random() * 90) + 60;
+    this.maxLife = Math.floor(Math.random() * 140) + 100;
   };
 
   Particle.prototype.tick = function() {
@@ -738,7 +738,7 @@
     this.wobble += this.wSpeed;
     this.x  += this.vx + Math.sin(this.wobble) * 0.38;
     this.y  += this.vy;
-    this.vy -= 0.006; /* heat rises — very gentle upward accel */
+    this.vy -= 0.002; /* heat rises — barely perceptible upward accel */
     return this.life < this.maxLife && this.y > -this.sz;
   };
 
