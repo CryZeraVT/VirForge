@@ -140,8 +140,8 @@
     ════════════════════════════════ */
     .logo-stage {
       position: relative;
-      width: 300px;
-      height: 300px;
+      width: 520px;
+      height: 480px;
       margin: 0 auto 2rem;
       flex-shrink: 0;
       display: flex;
@@ -162,11 +162,10 @@
     /* Fire canvas — centered, rises from the flame base of the logo */
     #fire-canvas {
       position: absolute;
-      /* shifted up so fire emits from the anvil-top / flame base in the logo */
-      top: calc(50% - 260px + 14px);
-      left: calc(50% - 90px);
-      width: 180px;
-      height: 260px;
+      top: calc(50% - 340px + 14px);
+      left: calc(50% - 120px);
+      width: 240px;
+      height: 340px;
       z-index: 10;
       pointer-events: none;
     }
@@ -178,10 +177,10 @@
     }
 
     .vf-center img {
-      width: 240px;
+      width: 480px;
       display: block;
-      filter: drop-shadow(0 0 40px rgba(0,212,255,0.45))
-              drop-shadow(0 0 90px rgba(123,47,255,0.28));
+      filter: drop-shadow(0 0 60px rgba(0,212,255,0.45))
+              drop-shadow(0 0 120px rgba(123,47,255,0.28));
       animation: float 7s ease-in-out infinite;
     }
 
@@ -529,8 +528,8 @@
       }
       .ring-outer { width: 300px; height: 300px; }
       .ring-inner { width: 228px; height: 228px; }
-      .logo-stage { width: 220px; height: 220px; }
-      .vf-center img { width: 180px; }
+      .logo-stage { width: 340px; height: 320px; }
+      .vf-center img { width: 300px; }
       #fire-canvas {
         top: calc(50% - 200px + 24px);
         left: calc(50% - 70px);
@@ -709,7 +708,7 @@
 (function() {
   const canvas = document.getElementById('fire-canvas');
   const ctx    = canvas.getContext('2d');
-  const W = 180, H = 260;
+  const W = 240, H = 340;
 
   /* Emission zone: near the bottom of the canvas
      (which maps to the flame area of the voxel logo) */
@@ -721,7 +720,7 @@
   function Particle() { this.init(); }
 
   Particle.prototype.init = function() {
-    this.x       = emitCX + (Math.random() - 0.5) * 62;
+    this.x       = emitCX + (Math.random() - 0.5) * 90;
     this.y       = emitY  + (Math.random() - 0.5) * 4;
     /* Smaller pixels for subtlety */
     this.sz      = Math.floor(Math.random() * 2) + 1;
